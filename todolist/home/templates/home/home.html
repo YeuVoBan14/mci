@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+
 {% if pageView == 'users' %}
 <div style="padding: 10px">
     <h1><span class="badge text-bg-primary">User Table</span></h1>
@@ -70,5 +71,7 @@
         </tbody>
     </table>
 </div>
+{% else %}
+<h2>Please choose one of two topics at the nav bar</h2>
 {% endif %}
 {% endblock content %}
