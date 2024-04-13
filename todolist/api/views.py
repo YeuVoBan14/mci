@@ -11,8 +11,20 @@ def getRoute(request):
         'GET /api',
         'GET /api/users',
         'GET /api/users/:id',
+        'POST /api/users-create',
+        'PUT /api/users/:id',
+        'DELETE /api/users/:id',
+        'POST /api/change-password/:id',
+        'POST /api/login',
+
         'GET /api/jobs',
-        'GET /api/jobs/:id'
+        'GET /api/jobs/:id',
+        'POST /api/jobs-create',
+        'PUT /api/jobs/:id',
+        'DELETE /api/jobs/:id',
+        'GET /api/jobs-filter',
+        'GET /api/jobs-datefilter',
+        'GET /api/jobs-applicants'
     ]
     return Response(routes)
 @api_view(['GET'])
