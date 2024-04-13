@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+{% if pageView == 'add' %}
+<div style="padding: 10px">
+<h1><span class="badge text-bg-primary">Add Job</span></h1>
+<form method="POST">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">{{field.label}}</label>
+      {{field}}
+    </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+{% elif  pageView == 'edit' %}
+<div style="padding: 10px">
+    <h1><span class="badge text-bg-primary">Edit Job</span></h1>
+    <form method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">{{field.label}}</label>
+          {{field}}
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
+{% elif  pageView == 'delete' %}
+<form class="form" action="" method="POST">
+{% csrf_token %}
+    <h2>Are you sure to delete "{{obj}}"</h2>
+    <a class="btn btn-secondary" href="{{request.META.HTTP_REFERER}}">Cancel</a>
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+{% endif %}
+{% endblock content %}
